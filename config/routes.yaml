@@ -2,6 +2,11 @@ index:
    path: /inicio
    controller: App\Controller\HomeController::index
 animales:
-   path: /animales/{name?}
+   path: /animales/{name?}/{apellidos?}/{username}
    controller: App\Controller\HomeController::animales
-   defaults: { name: 'ninguno' }
+   defaults: { name: 'No Eres', apellidos: 'Nada'}
+   methods: [POST,GET]
+   requirements:
+      name: '[a-zA-Z]+'
+      apellidos: '[a-zA-Z]+'
+      username: '[a-zA-Z0-9_-]+'

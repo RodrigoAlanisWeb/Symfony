@@ -16,12 +16,14 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function animales($name){
+    public function animales($name,$apellidos,$username){
         $title = 'Bienvenido A la Pagina de Animales';
 
         return $this->render('home/animales.html.twig',[
             'title' => $title,
-            'name' => $name
+            'name' => $name,
+            'apellidos' => $apellidos,
+            'username' => $username,
         ]);
     }
 }
