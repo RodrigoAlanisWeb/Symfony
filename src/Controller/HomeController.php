@@ -26,4 +26,14 @@ class HomeController extends AbstractController
             'username' => $username,
         ]);
     }
+
+    public function redirection(){
+        // return $this->redirectToRoute('animales',[
+        //     'name' => 'Rodrigo',
+        //     'apellidos' => 'Alanis Lemus',
+        //     'username' => 'Arkpexps4'
+        // ]);
+
+        return $this->redirect('https://www.google.com.mx/?hl=es-419');
+    }
 }

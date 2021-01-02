@@ -8,5 +8,8 @@ animales:
    methods: [POST,GET]
    requirements:
       name: '[a-zA-Z]+'
-      apellidos: '[a-zA-Z]+'
+      apellidos: '[a-zA-Z]+\s[a-zA-Z]+$'
       username: '[a-zA-Z0-9_-]+'
+redirect:
+   path: /redirect
+   controller: App\Controller\HomeController::redirection
