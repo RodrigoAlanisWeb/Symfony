@@ -18,4 +18,15 @@
     <h3>
         {{ perro }}
     </h3>
+
+    {# Trabajar con arrays #}
+
+    {{ dump(animales) }}
+    {{ animales[2] }}
+
+    {# Trabajar con arrays asociativos #}
+
+    {{ dump(ave) }}
+    {{ ave.tipo ~ ' - ' ~ ave.raza }}
+
 {% endblock %}
