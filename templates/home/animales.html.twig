@@ -29,4 +29,30 @@
     {{ dump(ave) }}
     {{ ave.tipo ~ ' - ' ~ ave.raza }}
 
+    {# Estructuras de control en twig #}
+
+    {# condicional #}
+
+    {% if ave.tipo == 'palomo' %}
+        <h2>Ciudado un palomo</h2>
+    {% else %}
+        <h2>No hay palomos a la vista</h2>
+    {% endif %}
+
+    {# Bucle #}
+
+    {% if animales|length > 0 %}
+        <ul>
+            {% for animal in animales %}
+                <li>
+                    {{ animal }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% for i in 0..animales|length %}
+        {{ i }}
+    {% endfor %}
+
 {% endblock %}
