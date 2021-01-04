@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block title %} Inicio {% endblock %} - Master en PHP de Victor Robles
+    </title>
+</head>
+<body>
+
+    <div class="header">
+        {% block header %}
+            <h1>Cabecera de la plantilla</h1>
+        {% endblock %}
+    </div>
+
+    <section class="content">
+        {% block content %}
+            <p>Contenido por defecto</p>
+        {% endblock %}
+    </section>
+
+    <footer class="footer">
+        {% block footer %}
+            desarrollado por : rodrigoalanisweb
+        {% endblock %}
+    </footer>
+
+    
+</body>
+</html>
