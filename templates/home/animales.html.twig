@@ -5,10 +5,17 @@
 {% endblock %}
 
 {% block header %}
-    <h1>{{ title }}</h1>
+    {{parent()}}
+    <h2>{{ title }}</h2>
 {% endblock %}
 
 {% block content %}
-    <h2>Tu nombre es: {{ name }} {{ apellidos }}</h2>
-    <h2>Tu nombre de usuario es: {{ username }}</h2>
+    {# <h2>Tu nombre es: {{ name }} {{ apellidos }}</h2>
+    <h2>Tu nombre de usuario es: {{ username }}</h2> #}
+
+    {# Variables en las vistas twig #}
+    {% set perro = 'Pastor Aleman' %}
+    <h3>
+        {{ perro }}
+    </h3>
 {% endblock %}
