@@ -55,4 +55,19 @@
         {{ i }}
     {% endfor %}
 
+    {% if ave.color ends with 's' %}
+        <h1>Empieza por g</h1>
+    {% endif %}
+    <hr>
+    {# Funciones predefinidas #}
+
+    <h2>{{ min([9,11,6,99,2]) }}</h2>
+    <h2>{{ random(animales) }}</h2>
+    <h2>{{ max([9,11,6,99,2]) }}</h2>
+
+    {% for i in range(0, 100, 5) %}
+        {{ i }}<br>
+    {% endfor %}
+    
+    <hr>
 {% endblock %}
