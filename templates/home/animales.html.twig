@@ -70,4 +70,18 @@
     {% endfor %}
     
     <hr>
+
+    {# Pipes #}
+
+    {{ animales|length }}
+    
+    {% set email = '     rodri2007roo@gmail.com       ' %}
+    {{ dump(email|trim|lower) }}
+
+    <h1>Extenciones perzonalizadas twig</h1>
+
+    {{ multiplicar(5)|raw }}
+    {{ 12|multiplicar|raw }}
+
+    <hr>
 {% endblock %}
