@@ -13,3 +13,11 @@ animales:
 redirect:
    path: /redirect
    controller: App\Controller\HomeController::redirection
+
+animal_index:
+   path: animal/index
+   controller: App\Controller\AnimalController::index
+
+animal_save:
+   path: animal/save
+   controller: App\Controller\AnimalController::save

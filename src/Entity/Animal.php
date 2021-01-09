@@ -58,6 +58,12 @@ class Animal
         return $this->tipo;
     }
 
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+
     public function setTipo(string $tipo): self
     {
         $this->tipo = $tipo;
@@ -88,6 +94,11 @@ class Animal
 
         return $this;
     }
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
 
+        return $this;
+    }
 
 }
