@@ -7,12 +7,61 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Animal;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Flex\Unpack\Result;
+
+use App\Form\AnimalType;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Validation;
 
 use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
 
 class AnimalController extends AbstractController
 {
+    /**
+     * @Route("validate/email/{email}", name="validate_email")
+     */
+    public function validateEmail($email)
+    {
+        $validator = Validation::createValidator();
+        $errors = $validator->validate($email, [
+            new Email()
+        ]);
+
+        if (count($errors) != 0) {
+            return new Response("El Email No Es Valido");
+        }
+
+        return new Response("El Email Es Valido");
+    }
+    /**
+     * @Route("animal/create", name="animal_create")
+     */
+    public function create(Request $request)
+    {
+        $animal = new Animal();
+        $form = $this->createForm(AnimalType::class, $animal);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($animal);
+            $em->flush();
+
+            $session = new Session();
+            // $session->start();
+            $session->getFlashBag()->add('msg','Animal Created Successfully');
+        }
+
+        return $this->render('animal/create_animal.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
     public function index(): Response
     {
         $animal_repo = $this->getDoctrine()->getRepository(Animal::class);
@@ -54,25 +103,9 @@ class AnimalController extends AbstractController
         ]);
     }
 
-    public function save()
+    public function save(Request $request)
     {
-        // Guardar En La DB
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $animal = new Animal();
-
-        $animal->setTipo('Avestruz');
-        $animal->setColor('blanco');
-        $animal->setRaza('africana');
-        $animal->setNombre('Ana');
-
-        // Guardar objeto en doctrine
-        $entityManager->persist($animal);
-
-        // Guardar en la tabla
-        $entityManager->flush();
-
-        return new Response('El animal guardado tiene el id: ' . $animal->getId());
+        $form = $request->get('form');
     }
 
     public function animal(Animal $animal)

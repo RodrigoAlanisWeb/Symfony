@@ -1,0 +1,9 @@
+<h1>Formulario con Symfony5</h1>
+
+{% for msg in app.session.flashbag().get('msg') %}
+    <strong>{{ msg }}</strong>
+{% endfor %}
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}

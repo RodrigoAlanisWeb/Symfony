@@ -15,6 +15,8 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'validate_email' => [['email'], ['_controller' => 'App\\Controller\\AnimalController::validateEmail'], [], [['variable', '/', '[^/]++', 'email', true], ['text', '/validate/email']], [], []],
+    'animal_create' => [[], ['_controller' => 'App\\Controller\\AnimalController::create'], [], [['text', '/animal/create']], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/inicio']], [], []],
     'animales' => [['name', 'apellidos', 'username'], ['name' => 'No Eres', 'apellidos' => 'Nada', 'username' => 'Nada', '_controller' => 'App\\Controller\\HomeController::animales'], ['name' => '[a-zA-Z]+', 'apellidos' => '[a-zA-Z]+\\s[a-zA-Z]+', 'username' => '[a-zA-Z0-9_-]+'], [['variable', '/', '[a-zA-Z0-9_-]+', 'username', true], ['variable', '/', '[a-zA-Z]+\\s[a-zA-Z]+', 'apellidos', true], ['variable', '/', '[a-zA-Z]+', 'name', true], ['text', '/animales']], [], []],
     'redirect' => [[], ['_controller' => 'App\\Controller\\HomeController::redirection'], [], [['text', '/redirect']], [], []],
