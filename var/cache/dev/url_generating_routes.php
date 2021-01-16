@@ -21,4 +21,6 @@ return [
     'animal_index' => [[], ['_controller' => 'App\\Controller\\AnimalController::index'], [], [['text', '/animal/index']], [], []],
     'animal_save' => [[], ['_controller' => 'App\\Controller\\AnimalController::save'], [], [['text', '/animal/save']], [], []],
     'animal_detail' => [['id'], ['_controller' => 'App\\Controller\\AnimalController::animal'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/animal']], [], []],
+    'animal_update' => [['id'], ['_controller' => 'App\\Controller\\AnimalController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/animal/update']], [], []],
+    'animal_delete' => [['id'], ['_controller' => 'App\\Controller\\AnimalController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/animal/delete']], [], []],
 ];

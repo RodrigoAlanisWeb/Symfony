@@ -37,7 +37,11 @@ return [
                 .')'
                 .'|/animal(?'
                     .'|es(?:/([a-zA-Z]+)(?:/([a-zA-Z]+\\s[a-zA-Z]+)(?:/([a-zA-Z0-9_-]+))?)?)?(*:248)'
-                    .'|/([^/]++)(*:265)'
+                    .'|/(?'
+                        .'|([^/]++)(*:268)'
+                        .'|update/([^/]++)(*:291)'
+                        .'|delete/([^/]++)(*:314)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
@@ -50,8 +54,10 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         248 => [[['_route' => 'animales', 'name' => 'No Eres', 'apellidos' => 'Nada', 'username' => 'Nada', '_controller' => 'App\\Controller\\HomeController::animales'], ['name', 'apellidos', 'username'], ['POST' => 0, 'GET' => 1], null, false, true, null]],
-        265 => [
-            [['_route' => 'animal_detail', '_controller' => 'App\\Controller\\AnimalController::animal'], ['id'], null, null, false, true, null],
+        268 => [[['_route' => 'animal_detail', '_controller' => 'App\\Controller\\AnimalController::animal'], ['id'], null, null, false, true, null]],
+        291 => [[['_route' => 'animal_update', '_controller' => 'App\\Controller\\AnimalController::update'], ['id'], null, null, false, true, null]],
+        314 => [
+            [['_route' => 'animal_delete', '_controller' => 'App\\Controller\\AnimalController::delete'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
